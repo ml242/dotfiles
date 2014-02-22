@@ -32,18 +32,38 @@ noremap : ;
 " jj to escape
 inoremap jj <Esc>
 
+" kk to escape
+inoremap kk <Esc>
+
+" Super speed
+" Simply hold shift in command mode
+" And ctrl in insert mode
+noremap H 50h
+noremap J 50j
+noremap K 50k
+noremap L 50l
+inoremap <C-h> <Esc>50hi
+inoremap <C-j> <Esc>50ji
+inoremap <C-k> <Esc>50ki
+inoremap <C-l> <Esc>50li
+
 " space goes to insert mode
 :nmap <Space> i
 
 " ctrl-c actually copies text
 map <C-c> "+y<CR>
 
+" - & _ move lines around
+noremap - ddp
+noremap _ ddkkp
+
 " Search Hightlight Toggle
 set nohlsearch
 nnoremap <silent> <C-N> :se invhlsearch<CR>
 
 " Ctrl-T to toggle NerdTree
-noremap t :NERDTreeTabsToggle<CR>
+noremap <C-t> :NERDTreeTabsToggle<CR>
+inoremap <C-t> <Esc>:NERDTreeTabsToggle<CR>
 
 " Switch between windows, maximizing the current window
 nnoremap <C-J> <C-W>j<C-W>_ 
@@ -83,3 +103,6 @@ Bundle 'godlygeek/csapprox'
 Bundle 'vim-scripts/Colour-Sampler-Pack'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'mhinz/vim-startify'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
