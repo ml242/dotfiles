@@ -1,0 +1,68 @@
+[user]
+	name = Harrison Powers
+	email = fijimunkii@gmail.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[push]
+	default = simple
+[branch]
+  autosetuprebase = always
+[alias]
+  la = "!git config -l | grep alias | cut -c 7-"
+  st = status -s
+  cl = clone
+  ci = commit
+  cm = commit -m
+  cma = commit -a -m
+  ca = commit --amend
+  amend = commit --amend
+  filelog = log -u
+  fl = log -u
+  co = checkout
+  br = branch
+  le = log --oneline --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ls1 = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  lds = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+  ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  lc  = "!f() { git ll "$1"^.."$1"; }; f"
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  diff = diff --word-diff
+  d = diff --word-diff
+  dc = diff --cached
+  dl = "!git ll -1"
+  dlc = diff --cached HEAD^
+  dr  = "!f() { git diff -w "$1"^.."$1"; }; f"
+  diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+  branch = branch -ra
+  r = reset
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
+  svnr = svn rebase
+  svnd = svn dcommit
+  svnl = svn log --oneline --show-commit
+  sl = stash list
+  sa = stash apply
+  ss = stash save
+  cp = cherry-pick
+  grep = grep -Ii
+  gr = grep -Ii
+  gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+  f = "!git ls-files | grep -i"
+  lasttag = describe --tags --abbrev=0
+  lt = describe --tags --abbrev=0
+  ours = "!f() { git co --ours $@ && git add $@; }; f"
+  theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+  rem="!git config -l | grep remote.*url | tail -n +2"
+[merge]
+	tool = diffconflicts
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false
+[github]
+	user = fijimunkii
