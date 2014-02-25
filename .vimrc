@@ -46,10 +46,13 @@ filetype plugin indent on
 
 " copy and paste
 set pastetoggle=<C-o>
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
+vnoremap <C-c> "+yi
+vnoremap <C-x> "+c
+vnoremap <C-v> c<ESC>"+p
+inoremap <C-v> <ESC>"+pa
+
+" ctrl-d deletes a line in insert mode
+inoremap <C-d> <esc>ddi
 
 " Ultimate Undo aka GUNDO
 nnoremap <C-u> :GundoToggle<CR>
@@ -69,20 +72,17 @@ inoremap kk <Esc>
 " Super speed
 " Simply hold shift in command mode
 " And ctrl in insert mode
-noremap H 50h
-noremap J 50j
-noremap K 50k
-noremap L 50l
-inoremap <C-h> <Esc>50hi
-inoremap <C-j> <Esc>50ji
-inoremap <C-k> <Esc>50ki
-inoremap <C-l> <Esc>50li
+noremap H 15h
+noremap J 15j
+noremap K 15k
+noremap L 15l
+inoremap <C-h> <Esc>15hi
+inoremap <C-j> <Esc>15ji
+inoremap <C-k> <Esc>15ki
+inoremap <C-l> <Esc>15li
 
 " space goes to insert mode
-:nmap <Space> i
-
-" ctrl-c actually copies text
-map <C-c> "+y<CR>
+nnoremap <Space> i
 
 " - & _ move lines around
 noremap - ddp
