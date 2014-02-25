@@ -66,6 +66,9 @@ noremap ,c :cd ~/code<cr>
 noremap ; :
 noremap : ;
 
+" Disable regular escape
+inoremap <Esc> <nop>
+
 " jj to escape
 inoremap jj <Esc>
 
