@@ -1,3 +1,6 @@
+let mapleader = ","
+let maplocalleader = "\\"
+
 " Load Vundle
 set nocompatible
 filetype off
@@ -87,6 +90,12 @@ nnoremap <Space> i
 " - & _ move lines around
 noremap - ddp
 noremap _ ddkkp
+
+" <leader> ev to edit .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" <leader> sv to source .vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Search Hightlight Toggle
 set nohlsearch
