@@ -49,7 +49,7 @@ function hg_prompt_info {
 }
 
 PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
+%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)
 $(virtualenv_info)$(prompt_char) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
@@ -79,7 +79,7 @@ function install
 
 function rakeitgood
 {
-  rake db:drop;rake db:create;rake db:migrate;
+  rake db:drop;rake db:create;rake db:migrate;rake db:migrate RAILS_ENV=test;rake db:seed; rake db:seed RAILS_ENV=test;
 }
 
 function lyrics
@@ -101,4 +101,5 @@ function pushitgood
 alias ll='ls -la'
 alias reload='source ~/.zshrc'
 alias pair='tmux new-session -s pair'
+alias mysql='/usr/local/Cellar/mysql/5.6.15/support-files/mysql.server start'
 
