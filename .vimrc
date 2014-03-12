@@ -78,14 +78,14 @@ inoremap kk <Esc>
 " Super speed
 " Simply hold shift in command mode
 " And ctrl in insert mode
-noremap H 15h
-noremap J 15j
-noremap K 15k
-noremap L 15l
-inoremap <C-h> <Esc>15hi
-inoremap <C-j> <Esc>15ji
-inoremap <C-k> <Esc>15ki
-inoremap <C-l> <Esc>15li
+" noremap H 15h
+" noremap J 15j
+" noremap K 15k
+" noremap L 15l
+inoremap <C-h> <Esc>i
+inoremap <C-j> <Esc>jli
+inoremap <C-k> <Esc>kli
+inoremap <C-l> <Esc>2li
 
 " space goes to insert mode
 nnoremap <Space> i
@@ -93,6 +93,10 @@ nnoremap <Space> i
 " - & _ move lines around
 noremap - ddp
 noremap _ ddkkp
+
+" > and < indent and unindent
+nnoremap > >>
+nnoremap < <<
 
 " <leader> ev to edit .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
