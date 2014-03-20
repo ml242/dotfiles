@@ -1,0 +1,15 @@
+#!/bin/bash
+
+dotfiles=(vimrc zshrc gitconfig)
+
+echo copying dotfiles...
+echo
+
+for dotfile in ${dotfiles[*]}
+do
+      echo .${dotfile}
+      cp .$dotfile ~/.$dotfile
+done
+
+echo
+echo done
