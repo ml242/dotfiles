@@ -7,7 +7,7 @@ echo
 
 for dotfile in ${dotfiles[*]}
 do
-      echo .${dotfile}
+      echo "   .${dotfile}"
       cp .$dotfile ~/.$dotfile
 done
 
