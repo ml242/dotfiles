@@ -8,7 +8,7 @@ echo
 for dotfile in ${dotfiles[*]}
 do
       echo "   .${dotfile}"
-      cp .$dotfile ~/.$dotfile
+      cp .$dotfile ~
 done
 
 echo
