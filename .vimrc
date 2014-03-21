@@ -75,18 +75,6 @@ inoremap jj <Esc>
 " kk to escape
 inoremap kk <Esc>
 
-" Super speed
-" Simply hold shift in command mode
-" And ctrl in insert mode
-" noremap H 15h
-" noremap J 15j
-" noremap K 15k
-" noremap L 15l
-inoremap <C-h> <Esc>i
-inoremap <C-j> <Esc>jli
-inoremap <C-k> <Esc>kli
-inoremap <C-l> <Esc>2li
-
 " space goes to insert mode
 nnoremap <Space> i
 
