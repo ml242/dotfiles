@@ -64,9 +64,6 @@ else
   export EDITOR='vim'
 fi
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 function precompile
 {
   bundle exec rake assets:precompile; git add --all .; git commit -m $1;
@@ -77,29 +74,12 @@ function install
   sudo apt-get install $1;
 }
 
-function rakeitgood
-{
-  rake db:drop;rake db:create;rake db:migrate;rake db:migrate RAILS_ENV=test;rake db:seed; rake db:seed RAILS_ENV=test;
-}
-
-function lyrics
-{
-  sh ~/.config/pianobar/lyrics.sh
-}
-
-function gc
-{
-  git add --all .; git commit -m $1;
-}
-
-function pushitgood
-{
-  git push origin master; git push heroku master;
-}
-
-
+alias rakeitgood='rake db:drop;rake db:create;rake db:migrate;rake db:migrate RAILS_ENV=test;rake db:seed; rake db:seed RAILS_ENV=test;'
+alias lyrics='sh ~/.config/pianobar/lyrics.sh'
+alias pushitgood='git push origin master; git push heroku master;'
 alias ll='ls -la'
 alias reload='source ~/.zshrc'
 alias pair='tmux new-session -s pair'
 alias mysql='/usr/local/Cellar/mysql/5.6.15/support-files/mysql.server start'
+alias sleep='osascript ~/Projects/automate/sleep.scpt'
 
