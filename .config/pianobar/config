@@ -1,0 +1,5 @@
+user = email@gmail.com
+password = password
+
+event_command = /Users/fijimunkii/.config/pianobar/eventcommand.sh
+autostart_station = 45088214493320625
