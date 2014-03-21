@@ -11,7 +11,7 @@ while read L; do
 done < <(grep -e '^\(title\|artist\|album\|stationName\|pRet\|pRetStr\|wRet\|wRetStr\|songDuration\|songPlayed\|rating\|songDuration\|songPlayed\|coverArt\|stationCount\|station[0-9]\+\)=' /dev/stdin)
 
 case "$1" in
-  songstart)
+        songstart)
         echo -e "glyrc lyrics -a \"$artist\" -t \"$title\" -b \"$album\" -w /tmp/" > "$lyricsfile"
     /usr/local/bin/terminal-notifier -subtitle  "Artist: $artist" -message "Album: $album" -title "$title"
 ;;
