@@ -66,12 +66,19 @@ fi
 
 function precompile
 {
-  bundle exec rake assets:precompile; git add --all .; git commit -m $1;
+    bundle exec rake assets:precompile; \
+      git add --all .; git commit -m $1;
 }
 
 function install
 {
-  sudo apt-get install $1;
+    if hash yum 2>/dev/null; then
+        sudo yum install $1; 
+    elif hash apt-get 2>/dev/null; then
+        sudo apt-get install $1;
+    elif hash brew 2>/dev/null; then
+        brew install $1;
+    fi
 }
 
 alias rakeitgood='rake db:drop;rake db:create;rake db:migrate;rake db:migrate RAILS_ENV=test;rake db:seed; rake db:seed RAILS_ENV=test;'
