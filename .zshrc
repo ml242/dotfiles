@@ -74,4 +74,6 @@ alias reload='source ~/.zshrc'
 alias pair='tmux new-session -s pair'
 alias mysql='/usr/local/Cellar/mysql/5.6.15/support-files/mysql.server start'
 alias sleep='osascript ~/Projects/automate/sleep.scpt'
+alias k='bundle exec kitchen'
+alias sasswatch='sass -w .:.'
 
