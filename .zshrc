@@ -76,4 +76,4 @@ alias mysql='/usr/local/Cellar/mysql/5.6.15/support-files/mysql.server start'
 alias sleep='osascript ~/Projects/automate/sleep.scpt'
 alias k='bundle exec kitchen'
 alias sasswatch='sass -w .:.'
-
+alias jailbreak='sudo xattr -rd com.apple.quarantine'
