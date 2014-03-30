@@ -20,6 +20,9 @@ case $TERM in
   ;;
 esac
 
+# Loads J
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
 # changes pwd of $HOME to ~
 function collapse_pwd {
   echo $(pwd | sed -e "s,^$HOME,~,")
