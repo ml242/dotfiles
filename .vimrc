@@ -54,6 +54,9 @@ vnoremap <C-x> "+c
 vnoremap <C-v> c<ESC>"+p
 inoremap <C-v> <ESC>"+pa
 
+" Allow saving of files as sudo when I forgot to start vim using sudo
+cmap w!! w !sudo tee > /dev/null %
+
 " ctrl-d deletes a line in insert mode
 inoremap <C-d> <esc>ddi
 
@@ -74,6 +77,18 @@ inoremap jj <Esc>
 
 " kk to escape
 inoremap kk <Esc>
+
+" Super speed
+" Simply hold shift in command mode
+" And ctrl in insert mode
+" noremap H 15h
+" noremap J 15j
+" noremap K 15k
+" noremap L 15l
+inoremap <C-h> <Esc>i
+inoremap <C-j> <Esc>jli
+inoremap <C-k> <Esc>kli
+inoremap <C-l> <Esc>2li
 
 " space goes to insert mode
 nnoremap <Space> i
