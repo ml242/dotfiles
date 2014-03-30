@@ -12,6 +12,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+setopt prompt_subst
 setopt CORRECT CORRECT_ALL
 COMPLETION_WAITING_DOTS=true
 DISABLE_UPDATE_PROMPT=true
@@ -48,13 +49,13 @@ ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-prompt_user="%{$fg[magenta]%}%n%{$reset_color%}"
-prompt_machine="%{$fg[yellow]%}%m%{$reset_color%}"
-prompt_dir="%{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}"
+function prompt_user { echo "%{$fg[magenta]%}%n%{$reset_color%}" }
+function prompt_machine { echo "%{$fg[yellow]%}%m%{$reset_color%}" }
+function prompt_dir { echo "%{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}" }
 
-PROMPT="
-$prompt_user at $prompt_machine in $prompt_dir $(git_prompt_info)
-$(virtualenv_info)$(prompt_char) "
+PROMPT='
+$(prompt_user) at $(prompt_machine) in $(prompt_dir) $(git_prompt_info)
+$(virtualenv_info)$(prompt_char) '
 
 RPROMPT='$(battery_pct_remaining)'
 
