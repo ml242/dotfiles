@@ -44,18 +44,17 @@ function virtualenv_info {
 }
 
 # constructs the prompt
-user='%{$fg[magenta]%}%n%{$reset_color%}'
-machine='%{$fg[yellow]%}%m%{$reset_color%}'
-directory='%{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}'
-
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
+prompt_user="%{$fg[magenta]%}%n%{$reset_color%}"
+prompt_machine="%{$fg[yellow]%}%m%{$reset_color%}"
+prompt_dir="%{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}"
 
-PROMPT='
-%{$user%} at %{$machine%} in %{$directory%}$(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
+PROMPT="
+$prompt_user at $prompt_machine in $prompt_dir $(git_prompt_info)
+$(virtualenv_info)$(prompt_char) "
 
 RPROMPT='$(battery_pct_remaining)'
 
