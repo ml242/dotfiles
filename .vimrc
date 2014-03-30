@@ -30,6 +30,8 @@ Bundle 'mhinz/vim-startify'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'sjl/gundo.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'jamessan/vim-gnupg'
 
 " Colorscheme
 colorscheme wombat256mod
@@ -56,6 +58,9 @@ inoremap <C-v> <ESC>"+pa
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" ctrl-f to recursively search files
+nnoremap <C-f> :Ack
 
 " ctrl-d deletes a line in insert mode
 inoremap <C-d> <esc>ddi
