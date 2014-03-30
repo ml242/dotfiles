@@ -5,7 +5,10 @@ export EDITOR='vim'
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
-plugins=( brew gem dirhistory rails coffee sublime torrent vi-mode git git-remote-branch ruby battery bundler colored-man colorize )
+plugins=(
+  brew gem dirhistory rails coffee sublime torrent vi-mode git
+  git-remote-branch ruby battery bundler colored-man colorize
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,17 +43,21 @@ function virtualenv_info {
   [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
-
-RPROMPT='$(battery_pct_remaining)'
+# constructs the prompt
+user='%{$fg[magenta]%}%n%{$reset_color%}'
+machine='%{$fg[yellow]%}%m%{$reset_color%}'
+directory='%{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+PROMPT='
+%{$user%} at %{$machine%} in %{$directory%}$(git_prompt_info)
+$(virtualenv_info)$(prompt_char) '
+
+RPROMPT='$(battery_pct_remaining)'
 
 function precompile
 {
@@ -80,8 +87,13 @@ function passgen
   fi
 }
 
+function rakeitgood
+{
+  rake db:drop;rake db:create;rake db:migrate;rake db:migrate RAILS_ENV=test; \
+    rake db:seed; rake db:seed RAILS_ENV=test;
+}
 
-alias rakeitgood='rake db:drop;rake db:create;rake db:migrate;rake db:migrate RAILS_ENV=test;rake db:seed; rake db:seed RAILS_ENV=test;'
+
 alias lyrics='sh ~/.config/pianobar/lyrics.sh'
 alias pushitgood='git push origin master; git push heroku master;'
 alias ll='ls -la'
@@ -92,3 +104,4 @@ alias sleep='osascript ~/Projects/automate/sleep.scpt'
 alias k='bundle exec kitchen'
 alias sasswatch='sass -w .:.'
 alias jailbreak='sudo xattr -rd com.apple.quarantine'
+
