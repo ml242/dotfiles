@@ -72,13 +72,14 @@ function install
 function passgen
 {
   if hash xclip 2>/dev/null; then
-    pwgen -s $1 1 | xclip -i;
+    head -c $1 /dev/urandom | base64 - | xclip -i;
   elif hash pbcopy 2>/dev/null; then
-    pwgen -s $1 1 | pbcopy;
+    head -c $1 /dev/urandom | base64 - | pbcopy;
   elif hash gpm 2>/dev/null; then
-    pwgen -s $1 1 | gpm;
+    head -c $1 /dev/urandom | base64 - | gpm;
   fi
 }
+
 
 alias rakeitgood='rake db:drop;rake db:create;rake db:migrate;rake db:migrate RAILS_ENV=test;rake db:seed; rake db:seed RAILS_ENV=test;'
 alias lyrics='sh ~/.config/pianobar/lyrics.sh'
