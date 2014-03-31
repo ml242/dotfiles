@@ -21,9 +21,9 @@ case $OSTYPE
     
     brew update
     brew doctor
-    for that in ${brew_taps[*]}; do brew tap $that; printf "."; done
-    for that in ${brew_installs[*]}; do brew install $that; printf "."; done
-    for that in ${cask_installs[*]}; do brew cask install $that; printf "."; done
+    for that in ${brew_taps[*]}; do brew tap $that; done
+    for that in ${brew_installs[*]}; do brew install $that; done
+    for that in ${cask_installs[*]}; do brew cask install $that; done
 
     curl -L http://install.ohmyz.sh | sh
 
@@ -146,7 +146,7 @@ case $OSTYPE
 
     apt_installs=( vim )
     sudo apt-get update
-    for that in ${apt_installs[*]}; do sudo apt-get install $that; printf "."; done 
+    for that in ${apt_installs[*]}; do sudo apt-get install $that; done 
 
 
   ;; in freebsd*)
@@ -159,6 +159,6 @@ case $OSTYPE
 esac
 
 dotfiles=$( ls -d .* )
-for dotfile in ${dotfiles[*]}; do cp -r $dotfile ~; printf "."; done
+for dotfile in ${dotfiles[*]}; do cp -r $dotfile ~; done
 
 printf "..all set!  \n\n:)"
