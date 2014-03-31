@@ -13,7 +13,7 @@ case $OSTYPE
       automake cmake coreutils gpg openssh openssl ack tmux tmate vagrant 
       brew-cask git curl wget bash bash-completion zsh vim irssi pianobar 
       terminal-notifier autojump ruby-build rbenv node imagemagick cmatrix
-      sqlite hub cowsay pbcopy )
+      sqlite hub cowsay pbcopy pass )
     brew_links=( sqlite )
     cask_installs=(
       little-snitch flux chromium aurora transmission vlc steam istat-menus
