@@ -9,16 +9,14 @@ case $OSTYPE
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
     brew_taps=( phize/cask )
-    brew_installs=( 
-      automake cmake coreutils gpg openssh openssl ack tmux tmate vagrant 
-      brew-cask git curl wget bash bash-completion zsh vim irssi pianobar 
-      terminal-notifier autojump ruby-build rbenv node imagemagick cmatrix
-      sqlite hub cowsay pbcopy pass )
+    brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
+      vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
+      autojump ruby-build rbenv node imagemagick cmatrix sqlite hub cowsay
+      pbcopy pass )
     brew_links=( sqlite )
-    cask_installs=(
-      little-snitch flux chromium aurora transmission vlc steam istat-menus
-      virtualbox transmit mou skype sketch postgres clipmenu cloud dash divvy 
-      smcfancontrol spotify spotifree spotify-notifications spotify-menubar
+    cask_installs=( little-snitch flux chromium aurora transmission vlc steam
+      istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
+      smcfancontrol dash spotify spotifree spotify-notifications spotify-menubar
       sublime-text the-unarchiver trim-enabler heroku-toolbelt electric-sheep )
     
     brew update
