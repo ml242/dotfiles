@@ -160,6 +160,6 @@ case $OSTYPE
 esac
 
 dotfiles=$( ls -d .* )
-for dotfile in ${dotfiles[*]}; do cp -r .$dotfile ~; printf "."; done
+for dotfile in ${dotfiles[*]}; do cp -r $dotfile ~; printf "."; done
 
 printf "..all set!  \n\n:)"
