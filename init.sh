@@ -157,6 +157,7 @@ case $OSTYPE
 
   ;; in win32)
 
+  ;;
 esac
 
 dotfiles=$( ls -d .* )
