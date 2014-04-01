@@ -32,7 +32,7 @@ case $OSTYPE
     brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
       vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
       autojump ruby-build rbenv node imagemagick cmatrix sqlite hub cowsay
-      pbcopy pass )
+      pbcopy pass go mpd )
     brew_links=( sqlite )
     cask_installs=( little-snitch flux chromium aurora transmission vlc steam
       istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
@@ -49,6 +49,14 @@ case $OSTYPE
     gpg --batch --gen-key $GPG_CONFIG
     gpg --no-default-keyring --secret-keyring ./gpgkey.sec \
             --keyring ./gpgkey.pub
+    popd
+
+    mkdir -p ~/Projects/go/src
+    pushd ~/Projects/go/src
+    git clone git@github.com:neeee/mpdviz.git
+    cd mpdviz
+    go get
+    go build
     popd
 
     curl -L http://install.ohmyz.sh | sh
