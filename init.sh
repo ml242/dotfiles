@@ -2,23 +2,10 @@
 
 # README
 #
-# 1. Set GPG passphrase
+# 1. See config
 # 2. enjoy
 
-
-read -r -d '' GPG_SETUP <<'EOF'
-Key-Type: default
-Subkey-Type: default
-Name-Real: Harrison Powers
-Name-Comment: the guy who set this up
-Name-Email: harrisonpowers@gmail.com
-Expire-Date: 0
-Passphrase:  
-%pubring gpgkey.pub
-%secring gpgkey.sec
-%commit
-EOF
-
+source config
 
 printf "installing things.."
 
@@ -32,7 +19,7 @@ case $OSTYPE
     brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
       vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
       autojump ruby-build rbenv node imagemagick cmatrix sqlite hub cowsay
-      pbcopy pass go mpd )
+      pbcopy pass go mpd mpc )
     brew_links=( sqlite )
     cask_installs=( little-snitch flux chromium aurora transmission vlc steam
       istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
@@ -46,6 +33,7 @@ case $OSTYPE
     for that in ${cask_installs[*]}; do brew cask install $that; done
 
     pushd ~
+
     gpg --batch --gen-key $GPG_CONFIG
     gpg --no-default-keyring --secret-keyring ./gpgkey.sec \
             --keyring ./gpgkey.pub
