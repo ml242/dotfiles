@@ -1,5 +1,25 @@
 #!/bin/bash
 
+# README
+#
+# 1. Set GPG passphrase
+# 2. enjoy
+
+
+read -r -d '' GPG_SETUP <<'EOF'
+Key-Type: default
+Subkey-Type: default
+Name-Real: Harrison Powers
+Name-Comment: the guy who set this up
+Name-Email: harrisonpowers@gmail.com
+Expire-Date: 0
+Passphrase:  
+%pubring gpgkey.pub
+%secring gpgkey.sec
+%commit
+EOF
+
+
 printf "installing things.."
 
 case $OSTYPE 
@@ -24,6 +44,12 @@ case $OSTYPE
     for that in ${brew_taps[*]}; do brew tap $that; done
     for that in ${brew_installs[*]}; do brew install $that; done
     for that in ${cask_installs[*]}; do brew cask install $that; done
+
+    pushd ~
+    gpg --batch --gen-key $GPG_CONFIG
+    gpg --no-default-keyring --secret-keyring ./gpgkey.sec \
+            --keyring ./gpgkey.pub
+    popd
 
     curl -L http://install.ohmyz.sh | sh
 
