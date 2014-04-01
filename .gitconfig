@@ -9,18 +9,13 @@
 [branch]
   autosetuprebase = always
 [alias]
-  la = "!git config -l | grep alias | cut -c 7-"
+  b = branch
+  r = reset
   st = status -s
   cl = clone
-  ci = commit
-  cm = commit -m
-  cma = commit -a -m
-  ca = commit --amend
-  amend = commit --amend
-  filelog = log -u
   fl = log -u
   co = checkout
-  br = branch
+  la = "!git config -l | grep alias | cut -c 7-"
   le = log --oneline --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   ls1 = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -36,15 +31,11 @@
   dr  = "!f() { git diff -w "$1"^.."$1"; }; f"
   diffr  = "!f() { git diff "$1"^.."$1"; }; f"
   branch = branch -ra
-  r = reset
   r1 = reset HEAD^
   r2 = reset HEAD^^
   rh = reset --hard
   rh1 = reset HEAD^ --hard
   rh2 = reset HEAD^^ --hard
-  svnr = svn rebase
-  svnd = svn dcommit
-  svnl = svn log --oneline --show-commit
   sl = stash list
   sa = stash apply
   ss = stash save
