@@ -12,7 +12,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-setopt prompt_subst
 setopt CORRECT CORRECT_ALL
 COMPLETION_WAITING_DOTS=true
 DISABLE_UPDATE_PROMPT=true
@@ -104,4 +103,4 @@ alias sleep='osascript ~/Projects/automate/sleep.scpt'
 alias k='bundle exec kitchen'
 alias sasswatch='sass -w .:.'
 alias jailbreak='sudo xattr -rd com.apple.quarantine'
-
+alias viz='mpdviz -f /tmp/mpd.fifo -v lines -i true -d false'
