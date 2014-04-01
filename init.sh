@@ -18,7 +18,7 @@ case $OSTYPE
     brew_taps=( phize/cask )
     brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
       vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
-      autojump ruby-build rbenv node imagemagick cmatrix sqlite hub cowsay
+      autojump ruby-build rbenv node imagemagick cmatrix mongodb hub cowsay
       pbcopy pass go mpd mpc )
     brew_links=( sqlite )
     cask_installs=( little-snitch flux chromium aurora transmission vlc steam
@@ -33,7 +33,6 @@ case $OSTYPE
     for that in ${cask_installs[*]}; do brew cask install $that; done
 
     pushd ~
-
     gpg --batch --gen-key $GPG_CONFIG
     gpg --no-default-keyring --secret-keyring ./gpgkey.sec \
             --keyring ./gpgkey.pub
