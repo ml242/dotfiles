@@ -19,7 +19,8 @@ case $OSTYPE
     brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
       vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
       autojump ruby-build rbenv node imagemagick cmatrix mongodb hub cowsay
-      pbcopy pass go mpd mpc )
+      'mpd --with-libshout --with-lame --with-twolame --with-flac'
+      mpc pbcopy pass go )
     brew_links=( sqlite )
     cask_installs=( little-snitch flux chromium aurora transmission vlc steam
       istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
