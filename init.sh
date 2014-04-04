@@ -21,14 +21,15 @@ case $OSTYPE
       vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
       autojump ruby-build rbenv node imagemagick cmatrix mongodb hub cowsay
       'mpd --with-libshout --with-lame --with-twolame --with-flac --with-lastfm --with-yajl'
-      mpc pbcopy pass go libreoffice )
+      mpc pbcopy pass go chromedriver jsdoc-toolkit selenium-server-standalone )
     brew_links=( sqlite )
     cask_installs=( little-snitch flux chromium aurora transmission vlc steam
       istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
       smcfancontrol dash spotify spotifree spotify-notifications spotify-menubar
       sublime-text the-unarchiver trim-enabler heroku-toolbelt electric-sheep 
       xquartz inkscape qlcolorcode qlstephen qlmarkdown quicklook-json
-      qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package )
+      qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
+      libreoffice )
     
     brew update
     brew doctor
