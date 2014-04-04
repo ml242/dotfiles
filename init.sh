@@ -13,19 +13,22 @@ case $OSTYPE
 
   in darwin*)
 
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    which brew > /dev/null || \
+      ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-    brew_taps=( phize/cask )
+    brew_taps=( phize/cask caskroom/versions )
     brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
       vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
       autojump ruby-build rbenv node imagemagick cmatrix mongodb hub cowsay
       'mpd --with-libshout --with-lame --with-twolame --with-flac --with-lastfm --with-yajl'
-      mpc pbcopy pass go )
+      mpc pbcopy pass go libreoffice )
     brew_links=( sqlite )
     cask_installs=( little-snitch flux chromium aurora transmission vlc steam
       istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
       smcfancontrol dash spotify spotifree spotify-notifications spotify-menubar
-      sublime-text the-unarchiver trim-enabler heroku-toolbelt electric-sheep )
+      sublime-text the-unarchiver trim-enabler heroku-toolbelt electric-sheep 
+      xquartz inkscape qlcolorcode qlstephen qlmarkdown quicklook-json
+      qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package )
     
     brew update
     brew doctor
