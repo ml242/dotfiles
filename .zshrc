@@ -6,8 +6,9 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 plugins=(
-  brew gem dirhistory rails coffee sublime torrent vi-mode git
-  git-remote-branch ruby battery bundler colored-man colorize
+  brew brew-cask dirhistory torrent vi-mode git git-remote-branch 
+  ruby rbenv rake-fast gem bundler vagrant
+  battery colored-man colorize
 )
 
 source $ZSH/oh-my-zsh.sh
