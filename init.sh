@@ -6,13 +6,17 @@
 # 2. enjoy
 
 source config
+clear
 
-printf "installing things.."
+printf "\ncopying dotfiles.."
+shopt -s dotglob
+dotfiles=$( ls -d .* )
+for dotfile in ${dotfiles[*]}; do cp -r $dotfile ~; done
 
 case $OSTYPE 
 
   in darwin*)
-
+    printf "\ngetting ready to brew.."
     which brew > /dev/null || \
       ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     brew update
@@ -36,18 +40,13 @@ case $OSTYPE
     for that in ${brew_installs[*]}; do brew install $that; done
     for that in ${cask_installs[*]}; do brew cask install $that; done
 
+    clear
+    printf "all brewed.\n\n"
+    printf "type in a secret passphase, press enter, then press ctrl-d\n\n"
     pushd ~
     gpg --batch --gen-key $GPG_CONFIG
     gpg --no-default-keyring --secret-keyring ./gpgkey.sec \
             --keyring ./gpgkey.pub
-    popd
-
-    mkdir -p ~/Projects/go/src
-    pushd ~/Projects/go/src
-    git clone git@github.com:neeee/mpdviz.git
-    cd mpdviz
-    go get
-    go build
     popd
 
     curl -L http://install.ohmyz.sh | sh
@@ -65,7 +64,8 @@ case $OSTYPE
     vagrant plugin install vagrant-omnibus
     gem install test-kitchen
     gem install berkshelf
-
+    
+    printf "\nTweaking OSX.."
     # Trackpad
     defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
     defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -170,7 +170,5 @@ case $OSTYPE
   ;;
 esac
 
-dotfiles=$( ls -d .* )
-for dotfile in ${dotfiles[*]}; do cp -r $dotfile ~; done
-
 printf "..all set!  \n\n:)"
+exit 0
