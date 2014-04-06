@@ -15,13 +15,16 @@ case $OSTYPE
 
     which brew > /dev/null || \
       ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-
-    brew_taps=( phize/cask caskroom/versions )
+    brew update
+    brew doctor
+    brew tap phinze/cask
+    brew tap caskroom/versions
+    brew install mpd --with-libshout --with-lame --with-twolame --with-flac --with-lastfm --with-yajl
     brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
-      vagrant bash bash-completion zsh vim irssi pianobar terminal-notifier
+      bash bash-completion zsh vim irssi pianobar terminal-notifier
       autojump ruby-build rbenv node imagemagick cmatrix mongodb hub cowsay
-      'mpd --with-libshout --with-lame --with-twolame --with-flac --with-lastfm --with-yajl'
-      mpc pbcopy pass go chromedriver jsdoc-toolkit selenium-server-standalone )
+      mpc pbcopy pass go chromedriver jsdoc-toolkit selenium-server-standalone 
+      spiped )
     brew_links=( sqlite )
     cask_installs=( little-snitch flux chromium aurora transmission vlc steam
       istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
@@ -29,11 +32,7 @@ case $OSTYPE
       sublime-text the-unarchiver trim-enabler heroku-toolbelt electric-sheep 
       xquartz inkscape qlcolorcode qlstephen qlmarkdown quicklook-json
       qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
-      libreoffice )
-    
-    brew update
-    brew doctor
-    for that in ${brew_taps[*]}; do brew tap $that; done
+      libreoffice vagrant )
     for that in ${brew_installs[*]}; do brew install $that; done
     for that in ${cask_installs[*]}; do brew cask install $that; done
 
@@ -167,20 +166,7 @@ case $OSTYPE
     # Disk Utility
     defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
     defaults write com.apple.DiskUtility advanced-image-options -bool true
-
-  ;; in linux-gnu)
-
-    apt_installs=( vim )
-    sudo apt-get update
-    for that in ${apt_installs[*]}; do sudo apt-get install $that; done 
-
-
-  ;; in freebsd*)
-
-  ;; in cygwin)
-
-  ;; in win32)
-
+    
   ;;
 esac
 
