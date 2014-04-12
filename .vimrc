@@ -1,9 +1,15 @@
 let mapleader = ","
 let maplocalleader = "\\"
-
-" Load Vundle
 set nocompatible
 filetype off
+set noesckeys
+" for problem with ncurses from 10.6
+inoremap OA <esc><right><up>i
+inoremap OB <esc><right><down>i
+inoremap OD <esc>i
+inoremap OC <esc><right>a
+
+" Load Vundle
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
@@ -62,11 +68,8 @@ cmap w!! w !sudo tee > /dev/null %
 " ctrl-f to recursively search files
 nnoremap <C-f> :Ack
 
-" ctrl-d deletes a line in insert mode
-inoremap <C-d> <esc>ddi
-
 " Ultimate Undo aka GUNDO
-nnoremap <C-u> :GundoToggle<CR>
+nnoremap <C-z> :GundoToggle<CR>
 let g:gundo_preview_height = 22
 
 " semicolon / colon
