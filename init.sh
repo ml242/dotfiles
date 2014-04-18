@@ -23,18 +23,17 @@ case $OSTYPE
     brew doctor
     brew tap phinze/cask
     brew tap caskroom/versions
-    brew install mpd --with-libshout --with-lame --with-twolame --with-flac --with-lastfm --with-yajl
-    brew_installs=( brew-cask gpg openssh openssl ack git curl wget tmux tmate
+    brew tap nviennot/tmate
+    brew_installs=( brew-cask gpg ack git curl wget tmux tmate autojump
       bash bash-completion zsh vim irssi pianobar terminal-notifier
       autojump ruby-build rbenv node imagemagick cmatrix mongodb hub cowsay
-      mpc pbcopy pass go chromedriver jsdoc-toolkit selenium-server-standalone 
-      spiped )
+      mpc pbcopy pass go autojump )
     brew_links=( sqlite )
-    cask_installs=( little-snitch flux chromium aurora transmission vlc steam
-      istat-menus virtualbox transmit divvy skype sketch postgres clipmenu cloud
+    cask_installs=( little-snitch flux chromium firefox-aurora transmission vlc
+      istat-menus virtualbox transmit divvy skype sketch postgres clipmenu steam
       smcfancontrol dash spotify spotifree spotify-notifications spotify-menubar
       sublime-text the-unarchiver trim-enabler heroku-toolbelt electric-sheep 
-      xquartz inkscape qlcolorcode qlstephen qlmarkdown quicklook-json
+      xquartz inkscape qlcolorcode qlstephen qlmarkdown quicklook-json cloud
       qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
       libreoffice vagrant )
     for that in ${brew_installs[*]}; do brew install $that; done
@@ -42,16 +41,8 @@ case $OSTYPE
 
     clear
     printf "all brewed.\n\n"
-    printf "type in a secret passphase, press enter, then press ctrl-d\n\n"
-    pushd ~
-    gpg --batch --gen-key $GPG_CONFIG
-    gpg --no-default-keyring --secret-keyring ./gpgkey.sec \
-            --keyring ./gpgkey.pub
-    popd
 
     curl -L http://install.ohmyz.sh | sh
-
-    easy_install pip
 
     npm install -g grunt-cli bower yo
 
@@ -66,14 +57,6 @@ case $OSTYPE
     gem install berkshelf
     
     printf "\nTweaking OSX.."
-    # Trackpad
-    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-    defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-    defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-    defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-    defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
     # Enables keyboard control in OSX dialogs
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
