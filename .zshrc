@@ -8,7 +8,7 @@ ZSH_THEME="agnoster"
 plugins=(
   brew brew-cask dirhistory torrent git git-remote-branch 
   ruby rbenv rake-fast gem bundler vagrant
-  battery colored-man colorize
+  battery colored-man colorize osx
 )
 
 source $ZSH/oh-my-zsh.sh
